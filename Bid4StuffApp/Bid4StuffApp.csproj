@@ -380,6 +380,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bid4Stuff.Data\Bid4Stuff.Data.csproj">
+      <Project>{bae5e9f5-c335-4c78-b0a2-cd6fff08715e}</Project>
+      <Name>Bid4Stuff.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bid4Stuff.Models\Bid4Stuff.Models.csproj">
+      <Project>{94d28525-e1dd-4c9a-827f-e993ecd7b0bd}</Project>
+      <Name>Bid4Stuff.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
