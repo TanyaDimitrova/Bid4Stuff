@@ -7,6 +7,32 @@
     <asp:TextBox ID="ItemNameInput" runat="server" CssClass="form-control"/>
     </div>
     <br />
+    <div class="input-group">
+    <asp:Label ID="ItemDescription" runat="server" Text="Description" AssociatedControlID="ItemDescriptionInput" class="input-group-addon"/>
+    <asp:TextBox ID="ItemDescriptionInput" runat="server" CssClass="form-control"/>
+    </div>
+    <br />
+    <div class="input-group">
+    <asp:Label ID="ItemImage" runat="server" Text="Image" AssociatedControlID="ItemImageInput" class="input-group-addon"/>
+    <asp:FileUpload ID="ItemImageInput" runat="server" CssClass="form-control"/>
+    </div>
+    <br />
+    <div class="input-group">
+    <asp:Label ID="ItemPrice" runat="server" Text="Price" AssociatedControlID="ItemPriceInput" class="input-group-addon"/>
+    <asp:TextBox ID="ItemPriceInput" runat="server" CssClass="form-control"/>
+    </div>
+    <br />
+    <div class="input-group">
+    <asp:Label ID="StartDate" runat="server" Text="Start Date" AssociatedControlID="StartDateInput" class="input-group-addon"/>
+    <asp:Calendar ID="StartDateInput" runat="server" CssClass="form-control"/>
+    </div>
+    <br />
+    <div class="input-group">
+    <asp:Label ID="EndDate" runat="server" Text="End Date" AssociatedControlID="EndDateInput" class="input-group-addon"/>
+    <asp:Calendar ID="EndDateInput" runat="server" CssClass="form-control"/>
+
+    </div>
+    <br />
     <asp:Button ID="ButtonSubmit" runat="server" 
         Text="Submit" OnClick="ButtonSubmit_Click" CssClass="btn btn-primary"/>
 </asp:Content>
