@@ -2,9 +2,12 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using Bid4Stuff.Data.Migrations;
 
 namespace Bid4Stuff.Data
 {
@@ -12,8 +15,9 @@ namespace Bid4Stuff.Data
     public class Bid4StuffDbContext : IdentityDbContext<ApplicationUser>
     {
         public Bid4StuffDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Bid4StuffConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Bid4StuffDbContext, Configuration>());
         }
 
         public static Bid4StuffDbContext Create()

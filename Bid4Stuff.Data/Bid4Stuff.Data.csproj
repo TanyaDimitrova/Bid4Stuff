@@ -78,6 +78,7 @@
     <Compile Include="Bid4StuffDbContext.cs" />
     <Compile Include="Contracts\IBid4StuffData.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
   </ItemGroup>
