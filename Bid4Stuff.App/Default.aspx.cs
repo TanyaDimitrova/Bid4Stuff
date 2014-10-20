@@ -11,7 +11,7 @@ namespace Bid4Stuff.App
 {
     public partial class _Default : Page
     {
-        private const int TopItemsCount = 15;
+        private const int TopItemsCount = 5;
         private Bid4StuffData db = new Bid4StuffData();
         
         protected void Page_Load(object sender, EventArgs e)

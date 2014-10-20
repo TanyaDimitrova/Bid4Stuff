@@ -30,7 +30,9 @@ namespace Bid4Stuff.App
                     Price = decimal.Parse(this.ItemPriceInput.Text),
                     Owner = user,
                     StartDate = this.StartDateInput.SelectedDate,
-                    EndDate = this.EndDateInput.SelectedDate
+                    EndDate = this.EndDateInput.SelectedDate,
+                    //TODO: Remove, only for testing
+                    ImagePath = "http://goo.gl/ZwPMYZ"
                 };
                 db.Items.Add(item);
                 db.SaveChanges();

@@ -19,22 +19,24 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr runat="server">
+                                <th runat="server"></th>
                                 <th runat="server">Name</th>
                                 <th runat="server">Price</th>
-                                <th runat="server">Start Date</th>
-                                <th runat="server">End Date</th>
+                                <th runat="server">Added</th>
+                                <th runat="server">Time Left</th>
                             </tr>
                         </thead>
                         <tr runat="server" id="itemPlaceholder" />
                     </table>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <tr>
-                        <td><%#: Item.Name %></td>
-                        <td><%#: Item.Price %></td>
-                        <td><%#: Item.StartDate %></td>
-                        <td><%#: Item.EndDate %></td>
-                    </tr>
+                    <td class="col-md-2">
+                        <asp:Image ImageUrl='<%# Item.ImagePath %>' runat="server" CssClass="img-responsive"/>
+                    </td>
+                    <td><%#: Item.Name %></td>
+                    <td><%#: Item.Price %></td>
+                    <td><%#: Item.StartDate %></td>
+                    <td><%#: string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds.", (Item.EndDate - DateTime.Now).Days, (Item.EndDate - DateTime.Now).Hours, (Item.EndDate - DateTime.Now).Minutes, (Item.EndDate - DateTime.Now).Seconds) %></td>
                 </ItemTemplate>
             </asp:ListView>
         </div>
@@ -51,9 +53,10 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr runat="server">
+                                <th runat="server"></th>
                                 <th runat="server">Name</th>
                                 <th runat="server">Price</th>
-                                <th runat="server">Start Date</th>
+                                <th runat="server">Added</th>
                                 <th runat="server">End Date</th>
                             </tr>
                         </thead>
@@ -61,12 +64,13 @@
                     </table>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <tr>
-                        <td><%#: Item.Name %></td>
-                        <td><%#: Item.Price %></td>
-                        <td><%#: Item.StartDate %></td>
-                        <td><%#: Item.EndDate %></td>
-                    </tr>
+                    <td class="col-md-2">
+                        <asp:Image ImageUrl='<%# Item.ImagePath %>' runat="server" CssClass="img-responsive"/>
+                    </td>
+                    <td><%#: Item.Name %></td>
+                    <td><%#: Item.Price %></td>
+                    <td><%#: Item.StartDate %></td>
+                    <td><%#: string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds.", (Item.EndDate - DateTime.Now).Days, (Item.EndDate - DateTime.Now).Hours, (Item.EndDate - DateTime.Now).Minutes, (Item.EndDate - DateTime.Now).Seconds) %></td>
                 </ItemTemplate>
             </asp:ListView>
         </div>
