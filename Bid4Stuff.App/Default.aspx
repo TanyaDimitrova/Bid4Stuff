@@ -3,40 +3,72 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1 class="text-center">Welcome to Bid4Stuff!</h1>
     </div>
-
     <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+        <div class="col-md-5 col-md-offset-1">
+            <h2 class="text-center">Latest Added Offers</h2>
+            <asp:ListView ID="ListViewLatestAddedOffers" runat="server"
+                          SelectMethod="ListViewLatestAddedOffers_GetData"
+                          ItemType="Bid4Stuff.Models.Item"
+                          DataKeyNames="Id">
+                <EmptyDataTemplate>
+                    <h3 class="text-center">No offers yet!</h3>
+                </EmptyDataTemplate>
+                <LayoutTemplate>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr runat="server">
+                                <th runat="server">Name</th>
+                                <th runat="server">Price</th>
+                                <th runat="server">Start Date</th>
+                                <th runat="server">End Date</th>
+                            </tr>
+                        </thead>
+                        <tr runat="server" id="itemPlaceholder" />
+                    </table>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td><%#: Item.Name %></td>
+                        <td><%#: Item.Price %></td>
+                        <td><%#: Item.StartDate %></td>
+                        <td><%#: Item.EndDate %></td>
+                    </tr>
+                </ItemTemplate>
+            </asp:ListView>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+        <div class="col-md-5">
+            <h2 class="text-center">Offers Ending Soon</h2>
+            <asp:ListView ID="ListViewOffersEndingSoon" runat="server"
+                          SelectMethod="ListViewOffersEndingSoon_GetData"
+                          ItemType="Bid4Stuff.Models.Item"
+                          DataKeyNames="Id">
+                <EmptyDataTemplate>
+                    <h3 class="text-center">No offers yet!</h3>
+                </EmptyDataTemplate>
+                <LayoutTemplate>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr runat="server">
+                                <th runat="server">Name</th>
+                                <th runat="server">Price</th>
+                                <th runat="server">Start Date</th>
+                                <th runat="server">End Date</th>
+                            </tr>
+                        </thead>
+                        <tr runat="server" id="itemPlaceholder" />
+                    </table>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td><%#: Item.Name %></td>
+                        <td><%#: Item.Price %></td>
+                        <td><%#: Item.StartDate %></td>
+                        <td><%#: Item.EndDate %></td>
+                    </tr>
+                </ItemTemplate>
+            </asp:ListView>
         </div>
     </div>
-
 </asp:Content>
