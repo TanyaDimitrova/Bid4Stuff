@@ -16,22 +16,7 @@ namespace Bid4Stuff.App
         protected void Page_Load(object sender, EventArgs e)
         {
         }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            if (this.User.Identity.IsAuthenticated)
-            {
-                foreach (ListViewItem item in ListViewOffersEndingSoon.Items)
-                {
-                    item.FindControl("btnBidOES").Visible = true;
-                }
-                foreach (ListViewItem item in ListViewLatestAddedOffers.Items)
-                {
-                    item.FindControl("btnBidLAO").Visible = true;
-                }
-            }
-        }
-
+        
         public IEnumerable<OfferViewModel> ListViewLatestAddedOffers_GetData()
         {
             var latestAddedItems = this.db.Items.All()
@@ -68,7 +53,22 @@ namespace Bid4Stuff.App
 
         protected void btnBidOES_Click(object sender, EventArgs e)
         {
-            
+        }
+
+        protected void ListViewOffersEndingSoon_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem && this.User.Identity.IsAuthenticated)
+            {
+                e.Item.FindControl("btnBidOES").Visible = true;
+            }
+        }
+
+        protected void ListViewLatestAddedOffers_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem && this.User.Identity.IsAuthenticated)
+            {
+                e.Item.FindControl("btnBidLAO").Visible = true;
+            }
         }
     }
 }

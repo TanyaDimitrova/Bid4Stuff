@@ -17,7 +17,8 @@
                 <ContentTemplate>
                     <asp:ListView ID="ListViewLatestAddedOffers" runat="server"
                                   SelectMethod="ListViewLatestAddedOffers_GetData"
-                                  ItemType="Bid4Stuff.App.Models.OfferViewModel">
+                                  ItemType="Bid4Stuff.App.Models.OfferViewModel"
+                        OnItemDataBound="ListViewLatestAddedOffers_ItemDataBound">
                         <EmptyDataTemplate>
                             <h3 class="text-center">No offers yet!</h3>
                         </EmptyDataTemplate>
@@ -65,7 +66,8 @@
                 <ContentTemplate>
                     <asp:ListView ID="ListViewOffersEndingSoon" runat="server"
                                   SelectMethod="ListViewOffersEndingSoon_GetData"
-                                  ItemType="Bid4Stuff.App.Models.OfferViewModel">
+                                  ItemType="Bid4Stuff.App.Models.OfferViewModel"
+                        OnItemDataBound="ListViewOffersEndingSoon_ItemDataBound">
                         <EmptyDataTemplate>
                             <h3 class="text-center">No offers yet!</h3>
                         </EmptyDataTemplate>
