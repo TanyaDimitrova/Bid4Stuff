@@ -1,4 +1,5 @@
-﻿using Bid4Stuff.Data;
+﻿using Bid4Stuff.App.Models;
+using Bid4Stuff.Data;
 using Bid4Stuff.Models;
 using System;
 using System.Collections.Generic;
@@ -18,16 +19,28 @@ namespace Bid4Stuff.App
         {
         }
 
-        public IQueryable<Item> ListViewLatestAddedOffers_GetData()
+        public IEnumerable<OfferViewModel> ListViewLatestAddedOffers_GetData()
         {
-            var latestAddedItems = this.db.Items.All().OrderByDescending(i => i.StartDate).Take(TopItemsCount);
-            return latestAddedItems;
+            var latestAddedItems = this.db.Items.All()
+                                       .OrderByDescending(i => i.StartDate)
+                                       .Take(TopItemsCount)
+                                       .ToList();
+
+            var latestAddedOffers = latestAddedItems.Select(i => new OfferViewModel(i));
+
+            return latestAddedOffers;
         }
 
-        public IQueryable<Item> ListViewOffersEndingSoon_GetData()
+        public IEnumerable<OfferViewModel> ListViewOffersEndingSoon_GetData()
         {
-            var latestAddedItems = this.db.Items.All().OrderBy(i => i.EndDate).Take(TopItemsCount);
-            return latestAddedItems;
+            var latestAddedItems = this.db.Items.All()
+                                       .OrderBy(i => i.EndDate)
+                                       .Take(TopItemsCount)
+                                       .ToList();
+
+            var latestAddedOffers = latestAddedItems.Select(i => new OfferViewModel(i));
+
+            return latestAddedOffers;
         }
     }
 }

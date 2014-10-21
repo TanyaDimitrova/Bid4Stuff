@@ -10,8 +10,7 @@
             <h2 class="text-center">Latest Added Offers</h2>
             <asp:ListView ID="ListViewLatestAddedOffers" runat="server"
                           SelectMethod="ListViewLatestAddedOffers_GetData"
-                          ItemType="Bid4Stuff.Models.Item"
-                          DataKeyNames="Id">
+                          ItemType="Bid4Stuff.App.Models.OfferViewModel">
                 <EmptyDataTemplate>
                     <h3 class="text-center">No offers yet!</h3>
                 </EmptyDataTemplate>
@@ -30,13 +29,15 @@
                     </table>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <td class="col-md-2">
-                        <asp:Image ImageUrl='<%# Item.ImagePath %>' runat="server" CssClass="img-responsive"/>
-                    </td>
-                    <td><%#: Item.Name %></td>
-                    <td><%#: Item.Price %></td>
-                    <td><%#: Item.StartDate %></td>
-                    <td><%#: string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds.", (Item.EndDate - DateTime.Now).Days, (Item.EndDate - DateTime.Now).Hours, (Item.EndDate - DateTime.Now).Minutes, (Item.EndDate - DateTime.Now).Seconds) %></td>
+                    <tr>
+                        <td class="col-md-2">
+                            <asp:Image ImageUrl='<%# Item.ImagePath %>' runat="server" CssClass="img-responsive"/>
+                        </td>
+                        <td><%#: Item.Name %></td>
+                        <td><%#: Item.Price %></td>
+                        <td><%#: Item.StartDate %></td>
+                        <td class="col-md-3"><%#: Item.TimeLeft %></td>
+                    </tr>
                 </ItemTemplate>
             </asp:ListView>
         </div>
@@ -44,8 +45,7 @@
             <h2 class="text-center">Offers Ending Soon</h2>
             <asp:ListView ID="ListViewOffersEndingSoon" runat="server"
                           SelectMethod="ListViewOffersEndingSoon_GetData"
-                          ItemType="Bid4Stuff.Models.Item"
-                          DataKeyNames="Id">
+                          ItemType="Bid4Stuff.App.Models.OfferViewModel">
                 <EmptyDataTemplate>
                     <h3 class="text-center">No offers yet!</h3>
                 </EmptyDataTemplate>
@@ -64,13 +64,15 @@
                     </table>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <td class="col-md-2">
-                        <asp:Image ImageUrl='<%# Item.ImagePath %>' runat="server" CssClass="img-responsive"/>
-                    </td>
-                    <td><%#: Item.Name %></td>
-                    <td><%#: Item.Price %></td>
-                    <td><%#: Item.StartDate %></td>
-                    <td><%#: string.Format("{0} Days, {1} Hours, {2} Minutes, {3} Seconds.", (Item.EndDate - DateTime.Now).Days, (Item.EndDate - DateTime.Now).Hours, (Item.EndDate - DateTime.Now).Minutes, (Item.EndDate - DateTime.Now).Seconds) %></td>
+                    <tr>
+                        <td class="col-md-2">
+                            <asp:Image ImageUrl='<%# Item.ImagePath %>' runat="server" CssClass="img-responsive"/>
+                        </td>
+                        <td><%#: Item.Name %></td>
+                        <td><%#: Item.Price %></td>
+                        <td><%#: Item.StartDate %></td>
+                        <td class="col-md-3"><%#: Item.TimeLeft %></td>
+                    </tr>
                 </ItemTemplate>
             </asp:ListView>
         </div>

@@ -349,6 +349,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\OfferViewModel.cs" />
     <Compile Include="MyListings.aspx.cs">
       <DependentUpon>MyListings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

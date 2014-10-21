@@ -13,7 +13,6 @@ namespace Bid4Stuff.App
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void ButtonSubmit_Click(object sender, EventArgs e)
@@ -22,7 +21,7 @@ namespace Bid4Stuff.App
             {
                 var db = new Bid4StuffData();
                 //TODO: add validations validations and fileupload
-                var user = db.Users.SearchFor(x=> x.UserName == this.User.Identity.Name).FirstOrDefault();
+                var user = db.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
                 var item = new Item()
                 {
                     Name = this.ItemNameInput.Text,
@@ -30,9 +29,7 @@ namespace Bid4Stuff.App
                     Price = decimal.Parse(this.ItemPriceInput.Text),
                     Owner = user,
                     StartDate = this.StartDateInput.SelectedDate,
-                    EndDate = this.EndDateInput.SelectedDate,
-                    //TODO: Remove, only for testing
-                    ImagePath = "http://goo.gl/ZwPMYZ"
+                    EndDate = this.EndDateInput.SelectedDate
                 };
                 db.Items.Add(item);
                 db.SaveChanges();
