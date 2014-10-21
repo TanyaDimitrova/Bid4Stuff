@@ -1,9 +1,6 @@
-﻿using Bid4Stuff.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Web;
+using Bid4Stuff.Models;
 
 namespace Bid4Stuff.App.Models
 {
@@ -14,21 +11,21 @@ namespace Bid4Stuff.App.Models
         public OfferViewModel(Item item)
         {
             this.Name = item.Name;
-            Price = item.Price;
-            StartDate = item.StartDate;
-            ImagePath = item.ImagePath == null ? DefaultImagePath : item.ImagePath;
+            this.Price = item.Price;
+            this.StartDate = item.StartDate.ToString("dd.MM.yyyy");
+            this.ImagePath = item.ImagePath == null ? DefaultImagePath : item.ImagePath;
 
             var diff = item.EndDate - DateTime.Now;
             this.TimeLeft = string.Format(
-                "{0}d, {1}h, {2}m",
-                diff.Days, diff.Hours, diff.Minutes);
+                "{0}d, {1}h, {2}m {3}s",
+                diff.Days, diff.Hours, diff.Minutes, diff.Seconds);
         }
         
         public string Name { get; set; }
 
         public decimal Price { get; set; }
 
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
 
         public string TimeLeft { get; set; }
 

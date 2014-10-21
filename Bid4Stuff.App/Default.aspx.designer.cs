@@ -13,6 +13,24 @@ namespace Bid4Stuff.App {
     public partial class _Default {
         
         /// <summary>
+        /// UpdateTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer UpdateTimer;
+        
+        /// <summary>
+        /// TimedPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel TimedPanel;
+        
+        /// <summary>
         /// ListViewLatestAddedOffers control.
         /// </summary>
         /// <remarks>
@@ -20,6 +38,15 @@ namespace Bid4Stuff.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView ListViewLatestAddedOffers;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
         /// ListViewOffersEndingSoon control.
