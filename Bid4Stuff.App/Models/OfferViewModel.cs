@@ -17,7 +17,7 @@ namespace Bid4Stuff.App.Models
 
             var diff = item.EndDate - DateTime.Now;
             this.TimeLeft = string.Format(
-                "{0}d, {1}h, {2}m {3}s",
+                "{0}d, {1}h {2}m {3}s",
                 diff.Days, diff.Hours, diff.Minutes, diff.Seconds);
         }
         

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.UI;
 using Bid4Stuff.App.Models;
 using Bid4Stuff.Data;
+using System.Web.UI.WebControls;
 
 namespace Bid4Stuff.App
 {
@@ -14,6 +15,21 @@ namespace Bid4Stuff.App
         
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                foreach (ListViewItem item in ListViewOffersEndingSoon.Items)
+                {
+                    item.FindControl("btnBidOES").Visible = true;
+                }
+                foreach (ListViewItem item in ListViewLatestAddedOffers.Items)
+                {
+                    item.FindControl("btnBidLAO").Visible = true;
+                }
+            }
         }
 
         public IEnumerable<OfferViewModel> ListViewLatestAddedOffers_GetData()
@@ -44,6 +60,15 @@ namespace Bid4Stuff.App
         {
             ListViewLatestAddedOffers.DataBind();
             ListViewOffersEndingSoon.DataBind();
+        }
+
+        protected void btnBidLAO_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void btnBidOES_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

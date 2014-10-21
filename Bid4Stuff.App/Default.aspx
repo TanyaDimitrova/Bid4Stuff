@@ -43,7 +43,12 @@
                                 <td><%#: Item.Name %></td>
                                 <td><%#: Item.Price %></td>
                                 <td><%#: Item.StartDate %></td>
-                                <td class="col-md-4 text-center"><%#: Item.TimeLeft %></td>
+                                <td class="col-md-4 text-center">
+                                    <%#: Item.TimeLeft %>
+                                    <div>
+                                        <asp:button text="Bid" runat="server" ID="btnBidLAO" Visible="false" OnClick="btnBidLAO_Click" class="btn btn-xs btn-info"/>
+                                    </div>
+                                </td>
                             </tr>
                         </ItemTemplate>
                     </asp:ListView>
@@ -86,7 +91,12 @@
                                 <td><%#: Item.Name %></td>
                                 <td><%#: Item.Price %></td>
                                 <td><%#: Item.StartDate %></td>
-                                <td class="col-md-4 text-center"><%#: Item.TimeLeft %></td>
+                                <td class="col-md-4 text-center">
+                                    <%#: Item.TimeLeft %>
+                                    <div>
+                                        <asp:button text="Bid" runat="server" ID="btnBidOES" Visible="false" OnClick="btnBidOES_Click" class="btn btn-xs btn-info"/>
+                                    </div>
+                                </td>
                             </tr>
                         </ItemTemplate>
                     </asp:ListView>
