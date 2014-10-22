@@ -10,7 +10,7 @@
 namespace Bid4Stuff.App {
     
     
-    public partial class Bid {
+    public partial class MakeBid {
         
         /// <summary>
         /// LabelBidPrice control.

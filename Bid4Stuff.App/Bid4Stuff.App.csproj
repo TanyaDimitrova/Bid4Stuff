@@ -161,7 +161,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Bid.aspx" />
+    <Content Include="MakeBid.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -332,12 +332,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Bid.aspx.cs">
-      <DependentUpon>Bid.aspx</DependentUpon>
+    <Compile Include="MakeBid.aspx.cs">
+      <DependentUpon>MakeBid.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Bid.aspx.designer.cs">
-      <DependentUpon>Bid.aspx</DependentUpon>
+    <Compile Include="MakeBid.aspx.designer.cs">
+      <DependentUpon>MakeBid.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateItemListing.aspx.cs">
       <DependentUpon>CreateItemListing.aspx</DependentUpon>
