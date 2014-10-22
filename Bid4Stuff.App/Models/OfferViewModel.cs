@@ -15,11 +15,12 @@ namespace Bid4Stuff.App.Models
             this.Price = item.Price;
             this.StartDate = item.StartDate.ToString("dd.MM.yyyy");
             this.ImagePath = item.ImagePath == null ? DefaultImagePath : item.ImagePath;
-
+            
             var diff = item.EndDate - DateTime.Now;
-            this.TimeLeft = string.Format(
-                "{0}d, {1}h {2}m {3}s",
-                diff.Days, diff.Hours, diff.Minutes, diff.Seconds);
+            var withoutDays = string.Format("{0}h {1}m {2}s", diff.Hours, diff.Minutes, diff.Seconds);
+            var withDays = string.Format("{0}d, {1}h {2}m {3}s", diff.Days, diff.Hours, diff.Minutes, diff.Seconds);
+            var timeLeft = diff.Days == 0 ? withoutDays : withDays;
+            this.TimeLeft = timeLeft;
         }
         
         public string Name { get; set; }
