@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         Make bid for item
-        <asp:Literal Text="" runat="server" />
+        <asp:Literal ID="LiteralItemName" Text="" runat="server" />
     </h2>
     <div class="input-group">
         <asp:Label ID="LabelBidPrice" runat="server" Text="Price" AssociatedControlID="InputBidPrice" class="input-group-addon"/>
