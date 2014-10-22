@@ -46,15 +46,7 @@ namespace Bid4Stuff.App
             ListViewLatestAddedOffers.DataBind();
             ListViewOffersEndingSoon.DataBind();
         }
-
-        protected void btnBidLAO_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void btnBidOES_Click(object sender, EventArgs e)
-        {
-        }
-
+        
         protected void ListViewOffersEndingSoon_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             if (e.Item.ItemType == ListViewItemType.DataItem && this.User.Identity.IsAuthenticated)

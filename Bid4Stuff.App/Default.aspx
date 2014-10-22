@@ -18,7 +18,7 @@
                     <asp:ListView ID="ListViewLatestAddedOffers" runat="server"
                                   SelectMethod="ListViewLatestAddedOffers_GetData"
                                   ItemType="Bid4Stuff.App.Models.OfferViewModel"
-                        OnItemDataBound="ListViewLatestAddedOffers_ItemDataBound">
+                                  OnItemDataBound="ListViewLatestAddedOffers_ItemDataBound">
                         <EmptyDataTemplate>
                             <h3 class="text-center">No offers yet!</h3>
                         </EmptyDataTemplate>
@@ -47,7 +47,7 @@
                                 <td class="col-md-4 text-center">
                                     <%#: Item.TimeLeft %>
                                     <div>
-                                        <asp:button text="Bid" runat="server" ID="btnBidLAO" Visible="false" OnClick="btnBidLAO_Click" class="btn btn-xs btn-info"/>
+                                        <asp:HyperLink text="Bid" runat="server" ID="btnBidLAO" Visible="false" NavigateUrl="~/Bid.aspx" class="btn btn-xs btn-info"/>
                                     </div>
                                 </td>
                             </tr>
@@ -67,7 +67,7 @@
                     <asp:ListView ID="ListViewOffersEndingSoon" runat="server"
                                   SelectMethod="ListViewOffersEndingSoon_GetData"
                                   ItemType="Bid4Stuff.App.Models.OfferViewModel"
-                        OnItemDataBound="ListViewOffersEndingSoon_ItemDataBound">
+                                  OnItemDataBound="ListViewOffersEndingSoon_ItemDataBound">
                         <EmptyDataTemplate>
                             <h3 class="text-center">No offers yet!</h3>
                         </EmptyDataTemplate>
@@ -96,7 +96,7 @@
                                 <td class="col-md-4 text-center">
                                     <%#: Item.TimeLeft %>
                                     <div>
-                                        <asp:button text="Bid" runat="server" ID="btnBidOES" Visible="false" OnClick="btnBidOES_Click" class="btn btn-xs btn-info"/>
+                                        <asp:HyperLink text="Bid" runat="server" ID="btnBidOES" Visible="false" NavigateUrl="~/Bid.aspx" class="btn btn-xs btn-info"/>
                                     </div>
                                 </td>
                             </tr>
