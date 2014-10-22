@@ -19,7 +19,6 @@ namespace Bid4Stuff.Data.Migrations
         protected override void Seed(Bid4Stuff.Data.Bid4StuffDbContext context)
         {
             //  This method will be called after migrating to the latest version.
-
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
@@ -30,7 +29,6 @@ namespace Bid4Stuff.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
             if (!context.Roles.Any(r => r.Name == "admin"))
             {
                 var store = new RoleStore<IdentityRole>(context);
@@ -44,10 +42,12 @@ namespace Bid4Stuff.Data.Migrations
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser { UserName = "admin@car.rec" };
+                var user = new ApplicationUser { UserName = "admin@bid.bg" };
 
                 manager.Create(user, "asdasd");
+                context.SaveChanges();
                 manager.AddToRole(user.Id, "admin");
+                context.SaveChanges();
             }
         }
     }

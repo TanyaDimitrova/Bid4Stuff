@@ -2,12 +2,15 @@
 using System.Linq;
 using Bid4Stuff.Data;
 using Bid4Stuff.Models;
+using Error_Handler_Control;
 
 namespace Bid4Stuff.App
 {
     public partial class MakeBid : System.Web.UI.Page
     {
-        Item selectedItem;
+        private Item selectedItem;
+        private int selectedItemId;
+        private Bid4StuffData db = new Bid4StuffData();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,9 +18,24 @@ namespace Bid4Stuff.App
             {
                 this.Response.Redirect("Default.aspx");
             }
-            var db = new Bid4StuffData();
-            var selectedItemId = int.Parse(Request["ItemId"]);
+            
+            selectedItemId = int.Parse(Request["ItemId"]);
             selectedItem = db.Items.SearchFor(i => i.Id == selectedItemId).FirstOrDefault();
+            if (selectedItem == null)
+            {
+                ErrorSuccessNotifier.AddErrorMessage("Can't find this item!");
+                ErrorSuccessNotifier.ShowAfterRedirect = true;
+                Response.Redirect("~/");
+            }
+            
+            var user = db.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
+            if (selectedItem.OwnerId == user.Id)
+            {
+                ErrorSuccessNotifier.AddErrorMessage("You can't bid on your own item!");
+                ErrorSuccessNotifier.ShowAfterRedirect = true;
+                Response.Redirect("~/");
+            }
+            
             this.LiteralItemName.Text = selectedItem.Name;
         }
 
@@ -26,43 +44,32 @@ namespace Bid4Stuff.App
             if (this.User != null && this.User.Identity.IsAuthenticated)
             {
                 //TODO: Validation
-                var db = new Bid4StuffData();
                 var user = db.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
                 if (Request["ItemId"] == null)
                 {
                     this.Response.Redirect("Default.aspx");
                 }
-                var selectedItemId = int.Parse(Request["ItemId"]);
-                var selectedItem = db.Items.SearchFor(i => i.Id == selectedItemId).FirstOrDefault();
-
-                if (selectedItem.OwnerId == user.Id)
-                {
-                    //TODO: Send error msg and redirect
-                }
-
-                if (selectedItem == null)
-                {
-                    //TODO: Send error msg and redirect 
-                }
 
                 var bidPrice = decimal.Parse(this.InputBidPrice.Text);
                 if (bidPrice <= selectedItem.Price)
                 {
-                    //TODO: Send error msg and redirect 
+                    ErrorSuccessNotifier.AddWarningMessage("Your bid must be higher than the current price!");
                 }
-                
-                var newBid = new Bid()
+                else
                 {
-                    ItemId = selectedItemId,
-                    Time = DateTime.Now,
-                    UserId = user.Id,
-                    Price = bidPrice
-                };
-                
-                selectedItem.Bids.Add(newBid);
-                selectedItem.Price = newBid.Price;
-                db.SaveChanges();
-                this.Response.Redirect("Default.aspx");
+                    var newBid = new Bid()
+                    {
+                        ItemId = selectedItemId,
+                        Time = DateTime.Now,
+                        UserId = user.Id,
+                        Price = bidPrice
+                    };
+
+                    selectedItem.Bids.Add(newBid);
+                    selectedItem.Price = newBid.Price;
+                    db.SaveChanges();
+                    this.Response.Redirect("Default.aspx");
+                }
             }
             else
             {
@@ -73,7 +80,6 @@ namespace Bid4Stuff.App
         public IQueryable<Bid> ListViewCurrentBids_GetData()
         {
             var bids = selectedItem.Bids.ToList();
-            var db = new Bid4StuffData();
             foreach (var bid in bids)
             {
                 var user = db.Users.SearchFor(x => x.Id == bid.UserId).FirstOrDefault();
