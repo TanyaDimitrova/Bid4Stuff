@@ -54,6 +54,9 @@ tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
                             <li>
                                 <a runat="server" href="~/">Home</a>
                             </li>
+                             <li>
+                                <a runat="server" href="~/ListAllItems">All Listings</a>
+                            </li>
                             <li>
                                 <a runat="server" href="~/MyListings">My Listings</a>
                             </li>
