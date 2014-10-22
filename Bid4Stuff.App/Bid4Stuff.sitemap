@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Default" title="Home"  description="View latest vids on items">
+    <siteMapNode url="ListAllItems" title="All Listings"  description="View all listings" />
+    <siteMapNode url="MyListings" title="My Listings"  description="View my stuff">
+      <siteMapNode url="CreateItemListing" title="Create new item" description="Create new stuff to be bid"/>
+    </siteMapNode>
+    <siteMapNode url="~/Admin/AdminArea" title="Admin Area"  description="Manage bids">
+      <siteMapNode url="~/Admin/EditBid" title="Bid Editor" description="Edit bid and item data"/>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
