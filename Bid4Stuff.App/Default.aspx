@@ -47,7 +47,7 @@
                                 <td class="col-md-4 text-center">
                                     <%#: Item.TimeLeft %>
                                     <div>
-                                        <asp:HyperLink text="Bid" runat="server" ID="btnBidLAO" Visible="false" NavigateUrl="~/Bid.aspx" class="btn btn-xs btn-info"/>
+                                        <asp:LinkButton text="Bid" runat="server" ID="btnBidLAO" Visible="false" PostBackUrl='<%#"~/Bid.aspx?Id="+ Item.ItemId%>' class="btn btn-xs btn-info"/>
                                     </div>
                                 </td>
                             </tr>
@@ -96,7 +96,7 @@
                                 <td class="col-md-4 text-center">
                                     <%#: Item.TimeLeft %>
                                     <div>
-                                        <asp:HyperLink text="Bid" runat="server" ID="btnBidOES" Visible="false" NavigateUrl="~/Bid.aspx" class="btn btn-xs btn-info"/>
+                                        <asp:LinkButton  text="Bid" runat="server" ID="btnBidOES" Visible="false" PostBackUrl='<%#"~/Bid.aspx?Id="+ Item.ItemId%>' class="btn btn-xs btn-info"/>
                                     </div>
                                 </td>
                             </tr>

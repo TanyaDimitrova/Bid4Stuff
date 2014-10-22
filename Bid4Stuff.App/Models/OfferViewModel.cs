@@ -10,6 +10,7 @@ namespace Bid4Stuff.App.Models
 
         public OfferViewModel(Item item)
         {
+            this.ItemId = item.Id;
             this.Name = item.Name;
             this.Price = item.Price;
             this.StartDate = item.StartDate.ToString("dd.MM.yyyy");
@@ -30,5 +31,7 @@ namespace Bid4Stuff.App.Models
         public string TimeLeft { get; set; }
 
         public string ImagePath { get; set; }
+
+        public int ItemId { get; set; }
     }
 }
