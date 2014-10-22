@@ -27,7 +27,7 @@ namespace Bid4Stuff.App
                     Name = this.ItemNameInput.Text,
                     Description = this.ItemDescriptionInput.Text,
                     Price = decimal.Parse(this.ItemPriceInput.Text),
-                    Owner = user,
+                    OwnerId = user.Id,
                     StartDate = this.StartDateInput.SelectedDate,
                     EndDate = this.EndDateInput.SelectedDate
                 };

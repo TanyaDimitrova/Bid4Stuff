@@ -4,8 +4,10 @@ namespace Bid4Stuff.Data.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Bid4Stuff.Data;
+    using Bid4Stuff.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Bid4Stuff.Data.Bid4StuffDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Bid4StuffDbContext>
     {
         public Configuration()
         {
@@ -13,20 +15,16 @@ namespace Bid4Stuff.Data.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(Bid4Stuff.Data.Bid4StuffDbContext context)
+        protected override void Seed(Bid4StuffDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            if (context.Categories.Count()==0)
+            {
+                context.Categories.Add(new Category("Home & Garden"));
+                context.Categories.Add(new Category("Computers"));
+                context.Categories.Add(new Category("Gaming & Fun"));
+                context.Categories.Add(new Category("Cosmetics"));
+                context.Categories.Add(new Category("Other"));
+            }
         }
     }
 }

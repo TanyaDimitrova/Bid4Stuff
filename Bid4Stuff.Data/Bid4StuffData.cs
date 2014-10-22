@@ -35,6 +35,13 @@
                 return this.GetRepository<ApplicationUser>();
             }
         }
+        public IGenericRepository<Category> Categories
+        {
+            get
+            {
+                return this.GetRepository<Category>();
+            }
+        }
 
         public IGenericRepository<Item> Items
         {
