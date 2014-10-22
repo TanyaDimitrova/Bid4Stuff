@@ -1,5 +1,8 @@
 namespace Bid4Stuff.Data.Migrations
 {
+    using Bid4Stuff.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -27,6 +30,25 @@ namespace Bid4Stuff.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            if (!context.Roles.Any(r => r.Name == "admin"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "admin" };
+
+                manager.Create(role);
+            }
+
+            if (!context.Users.Any(u => u.UserName == "admin@bid.bg"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser { UserName = "admin@car.rec" };
+
+                manager.Create(user, "asdasd");
+                manager.AddToRole(user.Id, "admin");
+            }
         }
     }
 }
