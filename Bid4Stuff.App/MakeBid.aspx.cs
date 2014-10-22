@@ -1,11 +1,7 @@
-﻿using Bid4Stuff.Data;
-using Bid4Stuff.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Bid4Stuff.Data;
+using Bid4Stuff.Models;
 
 namespace Bid4Stuff.App
 {
@@ -24,20 +20,35 @@ namespace Bid4Stuff.App
                 var user = db.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
                 var selectedItemId = int.Parse(Request["ItemId"]);
                 var selectedItem = db.Items.SearchFor(i => i.Id == selectedItemId).FirstOrDefault();
-                if (selectedItem != null)
+
+                if (selectedItem.OwnerId == user.Id)
                 {
-                    var newBid = new Bid()
-                    {
-                        ItemId = selectedItemId,
-                        Time = DateTime.Now,
-                        User = user,
-                        Price = decimal.Parse(this.InputBidPrice.Text)
-                    };
-                
-                    selectedItem.Bids.Add(newBid);
-                    db.SaveChanges();
-                    this.Response.Redirect("Default.aspx");
+                    //TODO: Send error msg and redirect
                 }
+
+                if (selectedItem == null)
+                {
+                    //TODO: Send error msg and redirect 
+                }
+
+                var bidPrice = decimal.Parse(this.InputBidPrice.Text);
+                if (bidPrice <= selectedItem.Price)
+                {
+                    //TODO: Send error msg and redirect 
+                }
+                
+                var newBid = new Bid()
+                {
+                    ItemId = selectedItemId,
+                    Time = DateTime.Now,
+                    User = user,
+                    Price = bidPrice
+                };
+                
+                selectedItem.Bids.Add(newBid);
+                selectedItem.Price = newBid.Price;
+                db.SaveChanges();
+                this.Response.Redirect("Default.aspx");
             }
             else
             {
