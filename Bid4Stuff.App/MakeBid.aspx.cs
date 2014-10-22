@@ -37,6 +37,7 @@ namespace Bid4Stuff.App
             }
             
             this.LiteralItemName.Text = selectedItem.Name;
+            this.LiteralItemPrice.Text = selectedItem.Price.ToString();
         }
 
         protected void ButtonMakeBid_Click(object sender, EventArgs e)

@@ -7,6 +7,11 @@
         </strong>
     </h2>
     <br />
+    <h2>
+        Current top price: <strong>
+            <asp:Literal ID="LiteralItemPrice" Text="" runat="server" />
+        </strong>
+    </h2>
     <h2>Current Bids</h2>
     <div class="row">
         <div class="col-md-4">

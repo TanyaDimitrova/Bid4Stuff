@@ -22,6 +22,15 @@ namespace Bid4Stuff.App {
         protected global::System.Web.UI.WebControls.Literal LiteralItemName;
         
         /// <summary>
+        /// LiteralItemPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LiteralItemPrice;
+        
+        /// <summary>
         /// ListViewCurrentBids control.
         /// </summary>
         /// <remarks>
