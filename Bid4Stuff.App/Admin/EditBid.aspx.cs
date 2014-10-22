@@ -1,31 +1,36 @@
 ﻿namespace Bid4Stuff.App.Admin
 {
+    using System;
+    using System.Linq;
+    using System.Web.UI.WebControls;
+
     using Bid4Stuff.Data;
     using Bid4Stuff.Data.Contracts;
+    using Bid4Stuff.Models;
+
     using Error_Handler_Control;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
 
     public partial class EditBid : System.Web.UI.Page
     {
         private IBid4StuffData data;
-        private Bid4Stuff.Models.Bid currentBid;
+        private Bid currentBid;
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            if (!User.IsInRole("admin"))
+            {
+                ErrorSuccessNotifier.AddWarningMessage("You are not authorized for this page");
+                Response.Redirect("../Default");
+            }
+
             this.data = new Bid4StuffData();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-        }
+            this.DropDownListCategory.DataSource = data.Categories.All().ToList();
+            this.DataBind();
 
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
             var bidId = Convert.ToInt32(Request.Params["id"]);
 
             if (bidId == 0)
@@ -36,6 +41,12 @@
             }
 
             currentBid = this.data.Bids.SearchFor(b => b.Id == bidId).FirstOrDefault();
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            this.DropDownListCategory.Items.Insert(0, new ListItem(" ", "0"));
+            this.DropDownListCategory.SelectedIndex = 0;
 
             this.ItemNameTextBox.Text = currentBid.Item.Name;
             this.ItemPriceTextBox.Text = currentBid.Price.ToString();
@@ -49,11 +60,6 @@
 
         protected void SaveEditBtn_Click(object sender, EventArgs e)
         {
-            if (this.IsPostBack)
-            {
-                return;
-            }
-
             var itemName = this.ItemNameTextBox.Text.Trim();
             ValidateItemName(itemName);
 
@@ -65,7 +71,7 @@
                 Response.Redirect(Request.RawUrl);
             }
 
-            var date = this.BidEndDate.SelectedDate;
+            var date = DateTime.Parse(this.NewSelectedDate.Value);
             if (date < DateTime.Now)
             {
                 ErrorSuccessNotifier.AddWarningMessage("Ending date should be in the future");
@@ -112,6 +118,12 @@
                 ErrorSuccessNotifier.AddWarningMessage("Item Name cannot be longer than 40 symbols");
                 Response.Redirect(Request.RawUrl);
             }
+        }
+
+        protected void BidEndDate_SelectionChanged(object sender, EventArgs e)
+        {
+            this.NewSelectedDate.Value = this.BidEndDate.SelectedDate.ToString();
+            this.BidEndDate.SelectedDate = DateTime.Parse(this.NewSelectedDate.Value);
         }
     }
 }

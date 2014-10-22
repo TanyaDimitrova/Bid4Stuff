@@ -11,24 +11,42 @@
         <div class="form-horizontal">
             <fieldset>
                 <legend>Bid Editor</legend>
+
+                <div class="form-group">
+                    <asp:Label Text="Item bidding end date" runat="server" AssociatedControlID="BidEndDate" class="col-lg-2 control-label" />
+                    <div class="col-xs-10">
+                        <asp:Calendar ID="BidEndDate" runat="server" EnableViewState="true" OnSelectionChanged="BidEndDate_SelectionChanged"></asp:Calendar>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <asp:Label Text="Item Name" runat="server" AssociatedControlID="ItemNameTextBox" class="col-lg-2 control-label" />
                     <div class="col-lg-10">
                         <asp:TextBox runat="server" ID="ItemNameTextBox" Text="" class="form-control" />
                     </div>
                 </div>
+
                 <div class="form-group">
                     <asp:Label Text="Item Price" runat="server" AssociatedControlID="ItemPriceTextBox" class="col-lg-2 control-label" />
                     <div class="col-lg-10">
-                        <asp:TextBox runat="server" ID="ItemPriceTextBox" Text="" class="form-control"/>
+                        <asp:TextBox runat="server" ID="ItemPriceTextBox" Text="" class="form-control" />
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <asp:Label Text="Item bidding end date" runat="server" AssociatedControlID="BidEndDate" class="col-lg-2 control-label" />
-                    <div class="col-xs-10">
-                        <asp:Calendar ID="BidEndDate" runat="server" EnableViewState="true"></asp:Calendar>
+                    <asp:Label Text="Item Category" runat="server" AssociatedControlID="DropDownListCategory" class="col-lg-2 control-label" />
+                    <div class="col-lg-10">
+                        <asp:DropDownList
+                            ID="DropDownListCategory"
+                            DataValueField="Id"
+                            DataTextField="Name"
+                            runat="server"
+                            CssClass="form-control" />
                     </div>
                 </div>
+
+                <asp:HiddenField ID="NewSelectedDate" runat="server" />
+
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         <asp:LinkButton

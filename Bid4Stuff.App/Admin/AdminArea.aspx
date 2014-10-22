@@ -15,8 +15,7 @@
                 <tr>
                     <th>Item Name</th>
                     <th>Item Price</th>
-                    <th>Bid's Date & Time
-                    </th>
+                    <th>Bid's Date & Time</th>
                     <th>Bidder</th>
                     <th>Action</th>
                 </tr>

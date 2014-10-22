@@ -13,6 +13,15 @@ namespace Bid4Stuff.App.Admin {
     public partial class EditBid {
         
         /// <summary>
+        /// BidEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar BidEndDate;
+        
+        /// <summary>
         /// ItemNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,22 @@ namespace Bid4Stuff.App.Admin {
         protected global::System.Web.UI.WebControls.TextBox ItemPriceTextBox;
         
         /// <summary>
-        /// BidEndDate control.
+        /// DropDownListCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar BidEndDate;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCategory;
+        
+        /// <summary>
+        /// NewSelectedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField NewSelectedDate;
         
         /// <summary>
         /// CancelEditBtn control.
