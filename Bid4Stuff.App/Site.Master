@@ -7,7 +7,7 @@ tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
     <head runat="server">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title><%: Page.Title %> - My ASP.NET Application</title>
+        <title><%: Page.Title %></title>
 
         <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -65,7 +65,7 @@ tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
                                     <asp:RoleGroup Roles="admin">
                                         <ContentTemplate>
                                             <li>
-                                                <a href="~Admin/AdminaArea" runat="server">Admin Area</a>
+                                                <a href="~/Admin/AdminArea" runat="server">Admin Area</a>
                                             </li>
                                         </ContentTemplate>
                                     </asp:RoleGroup>
