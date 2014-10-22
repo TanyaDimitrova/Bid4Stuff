@@ -13,6 +13,8 @@
 
         IGenericRepository<Bid> Bids { get; }
 
+        IGenericRepository<Category> Categories { get; }
+
         void SaveChanges();
     }
 }

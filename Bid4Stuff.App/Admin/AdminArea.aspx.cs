@@ -1,14 +1,15 @@
-﻿using Bid4Stuff.Data;
-using Bid4Stuff.Data.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace Bid4Stuff.App.Admin
+﻿namespace Bid4Stuff.App.Admin
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+
+    using Bid4Stuff.Data;
+    using Bid4Stuff.Data.Contracts;
+
     public partial class AdminArea : System.Web.UI.Page
     {
         private IBid4StuffData data;
@@ -28,9 +29,18 @@ namespace Bid4Stuff.App.Admin
         {
             var bidId = int.Parse(e.CommandArgument.ToString());
             var bid = data.Bids.SearchFor(b => b.Id == bidId).FirstOrDefault();
+
             data.Bids.Delete(bid);
             data.SaveChanges();
+
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void EditItem_Command(object sender, CommandEventArgs e)
+        {
+            var bidId = int.Parse(e.CommandArgument.ToString());
+
+            Response.Redirect(string.Format("EditBid?id={0}",bidId));
         }
 
     }

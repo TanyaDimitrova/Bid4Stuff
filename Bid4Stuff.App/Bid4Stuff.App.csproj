@@ -162,6 +162,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Admin\AdminArea.aspx" />
+    <Content Include="Admin\EditBid.aspx" />
     <Content Include="Controls\ErrorSuccessNotifier\ErrorSuccessNotifier.ascx" />
     <Content Include="Controls\ErrorSuccessNotifier\Images\error-icon.png" />
     <Content Include="Controls\ErrorSuccessNotifier\Images\info-icon.png" />
@@ -343,6 +344,13 @@
     </Compile>
     <Compile Include="Admin\AdminArea.aspx.designer.cs">
       <DependentUpon>AdminArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditBid.aspx.cs">
+      <DependentUpon>EditBid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditBid.aspx.designer.cs">
+      <DependentUpon>EditBid.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

@@ -33,14 +33,22 @@
                             <td><%#: Item.Time.ToString("dd MMM yyyy") %></td>
                             <td><%#: Item.User.UserName %></td>
                             <td>
-                                <asp:LinkButton 
-                                    ID="DeleteItem" 
-                                    runat="server" 
+                                <asp:LinkButton
+                                    ID="EditItem"
+                                    runat="server"
+                                    class="btn btn-info"
+                                    CommandName="Edit"
+                                    OnCommand="EditItem_Command"
+                                    CommandArgument="<%# Item.Id %>"
+                                    Text="Edit" />
+                                <asp:LinkButton
+                                    ID="DeleteItem"
+                                    runat="server"
                                     class="btn btn-danger"
                                     CommandName="Delete"
                                     OnCommand="DeleteItem_Command"
                                     CommandArgument="<%# Item.Id %>"
-                                    OnClientClick = "return confirm('Are you sure you want to delete this item?');"
+                                    OnClientClick="return confirm('Are you sure you want to delete following bid?');"
                                     Text="Delete" />
                             </td>
                         </tr>
