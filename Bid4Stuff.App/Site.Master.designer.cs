@@ -13,6 +13,15 @@ namespace Bid4Stuff.App {
     public partial class SiteMaster {
         
         /// <summary>
+        /// SiteMapPathBreadcrump control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SiteMapPath SiteMapPathBreadcrump;
+        
+        /// <summary>
         /// ErrorSuccessNotifier control.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,14 @@ namespace Bid4Stuff.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// SiteMapDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource;
     }
 }

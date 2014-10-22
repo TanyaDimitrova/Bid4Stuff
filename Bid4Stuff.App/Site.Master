@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Bid4Stuff.App.SiteMaster" %>
-<%@ Register src="~/Controls/ErrorSuccessNotifier/ErrorSuccessNotifier.ascx"
-tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
+
+<%@ Register Src="~/Controls/ErrorSuccessNotifier/ErrorSuccessNotifier.ascx"
+TagName="ErrorSuccessNotifier" TagPrefix="userControls" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -54,7 +55,7 @@ tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
                             <li>
                                 <a runat="server" href="~/">Home</a>
                             </li>
-                             <li>
+                            <li>
                                 <a runat="server" href="~/ListAllItems">All Listings</a>
                             </li>
                             <li>
@@ -97,6 +98,13 @@ tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
                     </div>
                 </div>
             </div>
+
+            <div>
+                <div class="breadcrumb">
+                    <asp:SiteMapPath ID="SiteMapPathBreadcrump" runat="server" class="active" />
+                </div>
+            </div>
+
             <div class="container body-content">
                 <userControls:ErrorSuccessNotifier ID="ErrorSuccessNotifier" runat="server" />
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -107,5 +115,6 @@ tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
                 </footer>
             </div>
         </form>
+        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
     </body>
 </html>
