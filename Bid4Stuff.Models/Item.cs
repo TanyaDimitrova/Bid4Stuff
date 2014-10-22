@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
 
     public class Item
     {
@@ -17,13 +16,17 @@
 
         public string Description { get; set; }
 
+        public int CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
+
         public string ImagePath { get; set; }
 
         public decimal Price { get; set; }
 
         public string OwnerId { get; set; }
 
-        public ApplicationUser Owner { get; set; }
+        public virtual ApplicationUser Owner { get; set; }
 
         public DateTime StartDate { get; set; }
 

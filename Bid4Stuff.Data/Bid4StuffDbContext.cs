@@ -25,6 +25,8 @@ namespace Bid4Stuff.Data
             return new Bid4StuffDbContext();
         }
 
+        public IDbSet<Category> Categories { get; set; }
+
         public IDbSet<Item> Items { get; set; }
 
         public IDbSet<Bid> Bids { get; set; }
