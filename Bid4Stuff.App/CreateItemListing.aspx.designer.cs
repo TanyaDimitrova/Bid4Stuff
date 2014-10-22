@@ -31,6 +31,24 @@ namespace Bid4Stuff.App {
         protected global::System.Web.UI.WebControls.TextBox ItemNameInput;
         
         /// <summary>
+        /// lblCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCategory;
+        
+        /// <summary>
+        /// DropDownListCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCategory;
+        
+        /// <summary>
         /// ItemDescription control.
         /// </summary>
         /// <remarks>
@@ -85,13 +103,13 @@ namespace Bid4Stuff.App {
         protected global::System.Web.UI.WebControls.TextBox ItemPriceInput;
         
         /// <summary>
-        /// StartDate control.
+        /// lblStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StartDate;
+        protected global::System.Web.UI.WebControls.Label lblStartDate;
         
         /// <summary>
         /// StartDateInput control.
@@ -103,13 +121,13 @@ namespace Bid4Stuff.App {
         protected global::System.Web.UI.WebControls.Calendar StartDateInput;
         
         /// <summary>
-        /// EndDate control.
+        /// lblEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EndDate;
+        protected global::System.Web.UI.WebControls.Label lblEndDate;
         
         /// <summary>
         /// EndDateInput control.

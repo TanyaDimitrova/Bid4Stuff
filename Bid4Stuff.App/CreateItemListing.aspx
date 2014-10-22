@@ -8,6 +8,11 @@
     </div>
     <br />
     <div class="input-group">
+    <asp:Label ID="lblCategory" runat="server" Text="Category" AssociatedControlID="DropDownListCategory" class="input-group-addon"/>
+    <asp:DropDownList ID="DropDownListCategory" DataValueField="Id" DataTextField="Name" runat="server" CssClass="form-control"/>
+    </div>
+    <br />
+    <div class="input-group">
     <asp:Label ID="ItemDescription" runat="server" Text="Description" AssociatedControlID="ItemDescriptionInput" class="input-group-addon"/>
     <asp:TextBox ID="ItemDescriptionInput" runat="server" CssClass="form-control"/>
     </div>
@@ -23,13 +28,13 @@
     </div>
     <br />
     <div class="input-group">
-    <asp:Label ID="StartDate" runat="server" Text="Start Date" AssociatedControlID="StartDateInput" class="input-group-addon"/>
-    <asp:Calendar ID="StartDateInput" runat="server" CssClass="form-control"/>
+    <asp:Label ID="lblStartDate" runat="server" Text="Start Date" AssociatedControlID="StartDateInput" class="input-group-addon"/>
+    <asp:Calendar ID="StartDateInput" runat="server" CssClass="form-control" EnableViewState="true"/>
     </div>
     <br />
     <div class="input-group">
-    <asp:Label ID="EndDate" runat="server" Text="End Date" AssociatedControlID="EndDateInput" class="input-group-addon"/>
-    <asp:Calendar ID="EndDateInput" runat="server" CssClass="form-control"/>
+    <asp:Label ID="lblEndDate" runat="server" Text="End Date" AssociatedControlID="EndDateInput" class="input-group-addon"/>
+    <asp:Calendar ID="EndDateInput" runat="server" CssClass="form-control"  EnableViewState="true"/>
 
     </div>
     <br />
