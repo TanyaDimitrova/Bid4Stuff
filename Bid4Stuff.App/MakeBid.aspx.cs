@@ -7,6 +7,8 @@ namespace Bid4Stuff.App
 {
     public partial class MakeBid : System.Web.UI.Page
     {
+        Item selectedItem;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request["ItemId"] == null)
@@ -15,7 +17,7 @@ namespace Bid4Stuff.App
             }
             var db = new Bid4StuffData();
             var selectedItemId = int.Parse(Request["ItemId"]);
-            var selectedItem = db.Items.SearchFor(i => i.Id == selectedItemId).FirstOrDefault();
+            selectedItem = db.Items.SearchFor(i => i.Id == selectedItemId).FirstOrDefault();
             this.LiteralItemName.Text = selectedItem.Name;
         }
 
@@ -53,7 +55,7 @@ namespace Bid4Stuff.App
                 {
                     ItemId = selectedItemId,
                     Time = DateTime.Now,
-                    User = user,
+                    UserId = user.Id,
                     Price = bidPrice
                 };
                 
@@ -66,6 +68,18 @@ namespace Bid4Stuff.App
             {
                 this.Response.Redirect("Account/Login");
             }
+        }
+
+        public IQueryable<Bid> ListViewCurrentBids_GetData()
+        {
+            var bids = selectedItem.Bids.ToList();
+            var db = new Bid4StuffData();
+            foreach (var bid in bids)
+            {
+                var user = db.Users.SearchFor(x => x.Id == bid.UserId).FirstOrDefault();
+                bid.User = user;
+            }
+            return bids.OrderByDescending(b => b.Time).AsQueryable();
         }
     }
 }

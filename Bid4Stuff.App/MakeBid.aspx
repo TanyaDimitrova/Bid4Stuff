@@ -2,9 +2,43 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        Make bid for item
-        <asp:Literal ID="LiteralItemName" Text="" runat="server" />
+        Make bid for <strong>
+            <asp:Literal ID="LiteralItemName" Text="" runat="server" />
+        </strong>
     </h2>
+    <br />
+    <h2>Current Bids</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:ListView ID="ListViewCurrentBids" runat="server"
+                          SelectMethod="ListViewCurrentBids_GetData"
+                          ItemType="Bid4Stuff.Models.Bid">
+                <EmptyDataTemplate>
+                    <h3 class="text-center">No bids yet!</h3>
+                </EmptyDataTemplate>
+                <LayoutTemplate>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr runat="server">
+                                <th runat="server" class="text-center">Price</th>
+                                <th runat="server" class="text-center">Time</th>
+                                <th runat="server" class="text-center">User</th>
+                            </tr>
+                        </thead>
+                        <tr runat="server" id="itemPlaceholder" />
+                    </table>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td class="text-center"><%#: Item.Price %></td>
+                        <td class="text-center"><%#: Item.Time %></td>
+                        <td class="text-center"><%#: Item.User.UserName %></td>
+                    </tr>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
+    </div>
+    <br />
     <div class="input-group">
         <asp:Label ID="LabelBidPrice" runat="server" Text="Price" AssociatedControlID="InputBidPrice" class="input-group-addon"/>
         <asp:TextBox ID="InputBidPrice" runat="server" CssClass="form-control"/>
