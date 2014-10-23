@@ -18,6 +18,18 @@ body {
     white-space: normal;
 }
 
+div>h3.span-bold{
+    margin-top:0;
+}
+
+td{
+    border:white;
+}
+
+.span-bold{
+    font-weight:bold;
+}
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input[type="text"],
 input[type="password"],

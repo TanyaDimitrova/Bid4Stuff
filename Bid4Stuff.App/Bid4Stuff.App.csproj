@@ -171,6 +171,7 @@
     <Content Include="Controls\ErrorSuccessNotifier\Scripts\ErrorSuccessNotifier.js" />
     <Content Include="Controls\ErrorSuccessNotifier\Scripts\jquery-1.3.2.js" />
     <Content Include="Controls\ErrorSuccessNotifier\Styles\ErrorSuccessNotifier.css" />
+    <Content Include="ItemDetails.aspx" />
     <Content Include="ListAllItems.aspx" />
     <Content Include="MakeBid.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -364,6 +365,13 @@
     </Compile>
     <Compile Include="Controls\ErrorSuccessNotifier\ErrorSuccessNotifier.ascx.designer.cs">
       <DependentUpon>ErrorSuccessNotifier.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDetails.aspx.cs">
+      <DependentUpon>ItemDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemDetails.aspx.designer.cs">
+      <DependentUpon>ItemDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListAllItems.aspx.cs">
       <DependentUpon>ListAllItems.aspx</DependentUpon>
