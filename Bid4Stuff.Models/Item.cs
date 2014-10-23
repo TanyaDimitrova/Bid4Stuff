@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     public class Item
     {
@@ -12,8 +13,10 @@
 
         public int Id { get; set; }
 
+        [MinLength(3),MaxLength(40)]
         public string Name { get; set; }
 
+        [MinLength(50), MaxLength(250)]
         public string Description { get; set; }
 
         public int CategoryId { get; set; }

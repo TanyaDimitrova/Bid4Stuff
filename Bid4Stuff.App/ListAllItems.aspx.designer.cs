@@ -13,21 +13,21 @@ namespace Bid4Stuff.App {
     public partial class ListAllItems {
         
         /// <summary>
-        /// GridView1 control.
+        /// ListViewItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.ListView ListViewItems;
         
         /// <summary>
-        /// SqlDataSourceListAllItems control.
+        /// DataPagerCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceListAllItems;
+        protected global::System.Web.UI.WebControls.DataPager DataPagerCustomers;
     }
 }

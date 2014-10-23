@@ -930,6 +930,7 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   width: 100% \9;
+  max-height: 48px;
   max-width: 100%;
   height: auto;
 }
