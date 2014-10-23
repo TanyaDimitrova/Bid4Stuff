@@ -73,7 +73,9 @@ namespace Bid4Stuff.App
                     selectedItem.Bids.Add(newBid);
                     selectedItem.Price = newBid.Price;
                     db.SaveChanges();
-                    this.Response.Redirect("~/");
+                    ErrorSuccessNotifier.AddSuccessMessage(String.Format("Your bid for {0} is accepted!", selectedItem.Name));
+                    ErrorSuccessNotifier.ShowAfterRedirect = true;
+                    Response.Redirect("~/");
                 }
             }
             else
