@@ -4,9 +4,7 @@
     using System.IO;
     using System.Linq;
     using System.Web.UI.WebControls;
-
     using Error_Handler_Control;
-
     using Bid4Stuff.Data;
     using Bid4Stuff.Data.Contracts;
     using Bid4Stuff.Models;
@@ -23,14 +21,18 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.DropDownListCategory.DataSource = data.Categories.All().ToList();
-            this.DataBind();
+            if (!this.IsPostBack)
+            {
+                this.DropDownListCategory.DataSource = data.Categories.All().ToList();
+                this.DataBind();
+
+                this.DropDownListCategory.Items.Add(new ListItem("","0"));
+                this.DropDownListCategory.SelectedValue = "0";
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            this.DropDownListCategory.Items.Insert(0, new ListItem(" ", "0"));
-            this.DropDownListCategory.SelectedIndex = 0;
         }
 
         protected void ButtonSubmit_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@
                 var currentItemName = this.ItemNameInput.Text.Trim();
                 ValidateItemName(currentItemName);
 
-                var currentCategoryId = Convert.ToInt32(this.DropDownListCategory.SelectedValue);
+                var currentCategoryId = Convert.ToInt32(this.DropDownListCategory.SelectedItem.Value);
                 ValidateCategory(currentCategoryId);
 
                 var currentDescription = this.ItemDescriptionInput.Text.Trim();
@@ -175,11 +177,10 @@
         {
             if (currentCategoryId == 0)
             {
-                ErrorSuccessNotifier.AddWarningMessage("Not exi");
+                ErrorSuccessNotifier.AddWarningMessage("Please choose category");
                 Response.Redirect(Request.RawUrl);
             }
-
-            if (!this.data.Categories.All().Any(c => c.Id == currentCategoryId))
+            else if (!this.data.Categories.All().Any(c => c.Id == currentCategoryId))
             {
                 ErrorSuccessNotifier.AddWarningMessage("Don't cheat to add custom category. Call the admin.");
                 Response.Redirect(Request.RawUrl);

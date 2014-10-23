@@ -20,7 +20,7 @@
             <div class="form-group">
                 <asp:Label ID="ItemDescription" runat="server" Text="Description" AssociatedControlID="ItemDescriptionInput" CssClass="col-lg-2 control-label" />
                 <div class="col-lg-10">
-                    <asp:TextBox ID="ItemDescriptionInput" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="ItemDescriptionInput" runat="server" TextMode="MultiLine" CssClass="form-control" />
                 </div>
             </div>
 
@@ -46,6 +46,7 @@
                         DataValueField="Id"
                         DataTextField="Name"
                         runat="server"
+                        AutoPostBack = true
                         CssClass="form-control" />
                 </div>
             </div>
