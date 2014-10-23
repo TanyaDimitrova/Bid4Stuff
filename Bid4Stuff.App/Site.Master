@@ -98,7 +98,7 @@ TagName="ErrorSuccessNotifier" TagPrefix="userControls" %>
 
             <div>
                 <div class="breadcrumb">
-                    <asp:SiteMapPath ID="SiteMapPathBreadcrump" runat="server" class="active" />
+                    <asp:SiteMapPath ID="SiteMapPathBreadcrump" runat="server" CssClass="active" />
                 </div>
             </div>
 
