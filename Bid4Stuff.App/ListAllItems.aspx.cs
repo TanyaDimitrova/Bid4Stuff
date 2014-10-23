@@ -17,12 +17,11 @@ namespace Bid4Stuff.App
         {
         }
 
-        public IEnumerable<OfferViewModel> ListViewItems_GetData()
+        public IQueryable<OfferViewModel> ListViewItems_GetData()
         {
-            var latestAddedItems = this.db.Items.All()
-                                       .ToList();
+            var latestAddedItems = this.db.Items.All().ToList();
 
-            var latestAddedOffers = latestAddedItems.Select(i => new OfferViewModel(i));
+            var latestAddedOffers = latestAddedItems.Select(i => new OfferViewModel(i)).AsQueryable();
 
             return latestAddedOffers;
         }

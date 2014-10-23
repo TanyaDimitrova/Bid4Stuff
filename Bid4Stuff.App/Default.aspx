@@ -80,6 +80,7 @@
                                         <th runat="server"></th>
                                         <th runat="server">Name</th>
                                         <th runat="server">Price</th>
+                                        <th runat="server">Category</th>
                                         <th runat="server">Added</th>
                                         <th runat="server">End Date</th>
                                     </tr>
@@ -94,6 +95,7 @@
                                 </td>
                                 <td><%#: Item.Name %></td>
                                 <td><%#: Item.Price %></td>
+                                <td><%#: Item.CategoryName %></td>
                                 <td><%#: Item.StartDate %></td>
                                 <td class="col-md-4 text-center">
                                     <%#: Item.TimeLeft %>

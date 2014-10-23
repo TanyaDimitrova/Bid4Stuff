@@ -1,6 +1,6 @@
-﻿<%@ Page Title="MakeBid" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="ListAllItems.aspx.cs" Inherits="Bid4Stuff.App.ListAllItems" %>
+﻿<%@ Page Title="All offers" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="ListAllItems.aspx.cs" Inherits="Bid4Stuff.App.ListAllItems" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="ContentAllItems" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -44,6 +44,18 @@
                     </tr>
                 </ItemTemplate>
             </asp:ListView>
+
+             <asp:DataPager ID="DataPagerCustomers" runat="server"
+            PagedControlID="ListViewItems" PageSize="3"
+            QueryStringField="page">
+            <Fields>
+                <asp:NextPreviousPagerField ShowFirstPageButton="true"
+                    ShowNextPageButton="false" ShowPreviousPageButton="false" />
+                <asp:NumericPagerField />
+                <asp:NextPreviousPagerField ShowLastPageButton="true"
+                    ShowNextPageButton="false" ShowPreviousPageButton="false" />
+            </Fields>
+        </asp:DataPager>
         </div>
     </div>
 </asp:Content>
