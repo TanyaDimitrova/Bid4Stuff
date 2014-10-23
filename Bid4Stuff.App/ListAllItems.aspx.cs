@@ -33,5 +33,10 @@ namespace Bid4Stuff.App
                 e.Item.FindControl("btnBidLAO").Visible = true;
             }
         }
+
+        protected void ListViewItems_Sorting(object sender, ListViewSortEventArgs e)
+        {
+            var b = 5;
+        }
     }
 }
