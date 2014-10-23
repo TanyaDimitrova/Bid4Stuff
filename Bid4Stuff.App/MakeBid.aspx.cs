@@ -16,10 +16,15 @@ namespace Bid4Stuff.App
         {
             if (Request["ItemId"] == null)
             {
-                this.Response.Redirect("Default.aspx");
+                this.Response.Redirect("~/");
             }
-            
-            selectedItemId = int.Parse(Request["ItemId"]);
+
+            if (!int.TryParse(Request["ItemId"], out selectedItemId))
+            {
+                ErrorSuccessNotifier.AddErrorMessage("Invalid item ID!");
+                ErrorSuccessNotifier.ShowAfterRedirect = true;
+                Response.Redirect("~/");
+            }
             selectedItem = db.Items.SearchFor(i => i.Id == selectedItemId).FirstOrDefault();
             if (selectedItem == null)
             {
@@ -44,15 +49,14 @@ namespace Bid4Stuff.App
         {
             if (this.User != null && this.User.Identity.IsAuthenticated)
             {
-                //TODO: Validation
                 var user = db.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
-                if (Request["ItemId"] == null)
+               
+                decimal bidPrice;
+                if (!decimal.TryParse(this.InputBidPrice.Text, out bidPrice))
                 {
-                    this.Response.Redirect("Default.aspx");
+                    ErrorSuccessNotifier.AddWarningMessage("Invalid price!");
                 }
-
-                var bidPrice = decimal.Parse(this.InputBidPrice.Text);
-                if (bidPrice <= selectedItem.Price)
+                else if (bidPrice <= selectedItem.Price)
                 {
                     ErrorSuccessNotifier.AddWarningMessage("Your bid must be higher than the current price!");
                 }
@@ -69,7 +73,9 @@ namespace Bid4Stuff.App
                     selectedItem.Bids.Add(newBid);
                     selectedItem.Price = newBid.Price;
                     db.SaveChanges();
-                    this.Response.Redirect("Default.aspx");
+                    ErrorSuccessNotifier.AddSuccessMessage(String.Format("Your bid for {0} is accepted!", selectedItem.Name));
+                    ErrorSuccessNotifier.ShowAfterRedirect = true;
+                    Response.Redirect("~/");
                 }
             }
             else

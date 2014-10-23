@@ -69,7 +69,8 @@
                     ImagePath = imagePath,
                     OwnerId = currentOwnerId,
                     StartDate = DateTime.Now,
-                    EndDate = this.EndDateInput.SelectedDate
+                    EndDate = this.EndDateInput.SelectedDate,
+                    Active = true
                 };
 
                 data.Items.Add(item);
