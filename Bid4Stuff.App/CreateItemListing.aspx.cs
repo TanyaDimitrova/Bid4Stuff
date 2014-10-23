@@ -4,7 +4,7 @@
     using System.IO;
     using System.Linq;
     using System.Web.UI.WebControls;
-    
+
     using Error_Handler_Control;
 
     using Bid4Stuff.Data;
@@ -83,7 +83,7 @@
                 this.Response.Redirect("Account/Login");
             }
         }
- 
+
         private string HandleFileInput(string imagePath)
         {
             if (this.ItemImageInput.HasFile)
@@ -100,9 +100,9 @@
                 this.ItemImageInput.SaveAs(Server.MapPath(string.Format("~/{2}/{0}/{1}", subPath, uniqueFileName, defaultPath)));
                 imagePath = string.Format("~/{2}/{0}/{1}", subPath, uniqueFileName, defaultPath);
             }
-            return imagePath;
+            return string.IsNullOrEmpty(imagePath) ? imagePath = "~/default_product.png" : imagePath;
         }
- 
+
         private void ValidateEndDate(DateTime currentEndDate)
         {
             if (currentEndDate < DateTime.Now)
