@@ -5,7 +5,6 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <asp:ListView ID="ListViewItems" runat="server"
-                OnSorting="ListViewItems_Sorting"
                 SelectMethod="ListViewItems_GetData"
                 ItemType="Bid4Stuff.App.Models.OfferViewModel"
                 OnItemDataBound="ListViewItems_ItemDataBound">
@@ -45,7 +44,7 @@
                         <td class="col-md-2">
                             <asp:Image ImageUrl='<%# Item.ImagePath %>' runat="server" CssClass="img-responsive" />
                         </td>
-                        <td><%#: Item.Name %></td>
+                        <td><a href='<%#: "ItemDetails.aspx?id=" + Item.ItemId  %>'><%#: Item.Name %></td>
                         <td><%#: Item.Price %></td>
                         <td><%#: Item.CategoryName%></td>
                         <td><%#: Item.StartDate %></td>

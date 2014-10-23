@@ -1,11 +1,12 @@
-﻿using System;
-using System.Linq;
-using Bid4Stuff.Data;
-using Bid4Stuff.Models;
-using Error_Handler_Control;
-
-namespace Bid4Stuff.App
+﻿namespace Bid4Stuff.App
 {
+    using System;
+    using System.Linq;
+
+    using Bid4Stuff.Data;
+    using Bid4Stuff.Models;
+    using Error_Handler_Control;
+
     public partial class MakeBid : System.Web.UI.Page
     {
         private Item selectedItem;
@@ -32,7 +33,7 @@ namespace Bid4Stuff.App
                 ErrorSuccessNotifier.ShowAfterRedirect = true;
                 Response.Redirect("~/");
             }
-            
+
             var user = db.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
             if (selectedItem.OwnerId == user.Id)
             {
@@ -40,7 +41,7 @@ namespace Bid4Stuff.App
                 ErrorSuccessNotifier.ShowAfterRedirect = true;
                 Response.Redirect("~/");
             }
-            
+
             this.LiteralItemName.Text = selectedItem.Name;
             this.LiteralItemPrice.Text = selectedItem.Price.ToString();
         }
@@ -50,7 +51,7 @@ namespace Bid4Stuff.App
             if (this.User != null && this.User.Identity.IsAuthenticated)
             {
                 var user = db.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
-               
+
                 decimal bidPrice;
                 if (!decimal.TryParse(this.InputBidPrice.Text, out bidPrice))
                 {
@@ -65,8 +66,10 @@ namespace Bid4Stuff.App
                     var newBid = new Bid()
                     {
                         ItemId = selectedItemId,
+                        Item = selectedItem,
                         Time = DateTime.Now,
                         UserId = user.Id,
+                        User = user,
                         Price = bidPrice
                     };
 

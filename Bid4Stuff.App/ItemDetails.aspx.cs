@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using Bid4Stuff.Data;
-using Bid4Stuff.Data.Contracts;
-using Bid4Stuff.Models; 
-
-namespace Bid4Stuff.App
+﻿namespace Bid4Stuff.App
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Bid4Stuff.Data;
+    using Bid4Stuff.Models;
+
     public partial class ItemDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -34,13 +30,23 @@ namespace Bid4Stuff.App
             this.DetailsViewItems.DataSource = itemsEnumerable;
 
             var item = itemsEnumerable.First();
-            DetailsViewItems.HeaderText = "<h1>" + 
+            DetailsViewItems.HeaderText = "<h1>" +
                                                Server.HtmlEncode(item.Name).PadLeft(10) +
-                                               " " + 
+                                               " " +
                                                " <span class=\"pull-right\">" +
-                                               Server.HtmlEncode(string.Format("{0:c}",item.Price)) +
+                                               Server.HtmlEncode(string.Format("{0:c}", item.Price)) +
                                                "</span></h1>";
             this.DataBind();
+
+            
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                DetailsViewItems.FindControl("btnBid").Visible = true;
+            }
         }
     }
 }

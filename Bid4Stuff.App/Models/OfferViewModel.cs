@@ -1,9 +1,10 @@
-﻿using System;
-using System.Linq;
-using Bid4Stuff.Models;
-
-namespace Bid4Stuff.App.Models
+﻿namespace Bid4Stuff.App.Models
 {
+    using System;
+    using System.Linq;
+
+    using Bid4Stuff.Models;
+
     public class OfferViewModel
     {
         private const string DefaultImagePath = "http://goo.gl/ZwPMYZ";

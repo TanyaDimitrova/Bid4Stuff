@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Bid4Stuff.Data;
-using Bid4Stuff.App.Models;
-
-namespace Bid4Stuff.App
+﻿namespace Bid4Stuff.App
 {
+    using System;
+    using System.Linq;
+    using System.Web.UI.WebControls;
+
+    using Bid4Stuff.Data;
+    using Bid4Stuff.App.Models;
+
     public partial class ListAllItems : System.Web.UI.Page
     {
         private Bid4StuffData db = new Bid4StuffData();
@@ -32,11 +30,6 @@ namespace Bid4Stuff.App
             {
                 e.Item.FindControl("btnBidLAO").Visible = true;
             }
-        }
-
-        protected void ListViewItems_Sorting(object sender, ListViewSortEventArgs e)
-        {
-            var b = 5;
         }
     }
 }

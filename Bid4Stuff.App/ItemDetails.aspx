@@ -14,15 +14,27 @@
                                     <%#: Item.Description %>
                                     <p>
                                         <h3 class="span-bold  ">Owner contact: </h3>
-                                    <%#: Item.Owner.UserName %></p>
+                                        <%#: Item.Owner.UserName %>
+                                    </p>
                                     <p>
                                         <h3 class="span-bold  ">Published on: </h3>
-                                    <%#: Item.StartDate %></p>
+                                        <%#: Item.StartDate %>
+                                    </p>
                                     <p>
                                         <h3 class="span-bold  ">Ends on: </h3>
-                                    <%#: Item.EndDate %></p>
+                                        <%#: Item.EndDate %>
+                                    </p>
+
                                 </div>
+
                             </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <p>
+                                <asp:LinkButton Text="Bid" runat="server" ID="btnBid" Visible="false" PostBackUrl='<%#"~/MakeBid.aspx?ItemId="+ Item.Id%>' CssClass="btn btn-lg btn-info" />
+                            </p>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Fields>

@@ -18,16 +18,21 @@ body {
     white-space: normal;
 }
 
-div>h3.span-bold{
-    margin-top:0;
+div > h3.span-bold {
+    margin-top: 0;
 }
 
-td{
-    border:white;
+pager-container {
+    margin: 30px;
+    font-size: 16px;
 }
 
-.span-bold{
-    font-weight:bold;
+td {
+    border: white;
+}
+
+.span-bold {
+    font-weight: bold;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -44,6 +49,7 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }

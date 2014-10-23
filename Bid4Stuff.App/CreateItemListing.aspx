@@ -6,7 +6,7 @@
     CodeBehind="CreateItemListing.aspx.cs"
     Inherits="Bid4Stuff.App.CreateItemListing" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="ContentCreate" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <h2>New Item Listing</h2>
         <div class="form-horizontal">
@@ -46,7 +46,7 @@
                         DataValueField="Id"
                         DataTextField="Name"
                         runat="server"
-                        AutoPostBack = true
+                        AutoPostBack="true"
                         CssClass="form-control" />
                 </div>
             </div>
