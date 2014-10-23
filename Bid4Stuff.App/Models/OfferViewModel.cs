@@ -13,6 +13,7 @@ namespace Bid4Stuff.App.Models
             this.ItemId = item.Id;
             this.Name = item.Name;
             this.Price = item.Price;
+            this.CategoryName = item.Category.Name;
             this.StartDate = item.StartDate.ToString("dd.MM.yyyy");
             this.ImagePath = item.ImagePath == null ? DefaultImagePath : item.ImagePath;
             
@@ -26,6 +27,8 @@ namespace Bid4Stuff.App.Models
         public string Name { get; set; }
 
         public decimal Price { get; set; }
+
+        public string CategoryName { get; set; }
 
         public string StartDate { get; set; }
 
