@@ -26,6 +26,7 @@
                 ErrorSuccessNotifier.ShowAfterRedirect = true;
                 Response.Redirect("~/");
             }
+
             selectedItem = db.Items.SearchFor(i => i.Id == selectedItemId).FirstOrDefault();
             if (selectedItem == null)
             {
@@ -95,6 +96,7 @@
                 var user = db.Users.SearchFor(x => x.Id == bid.UserId).FirstOrDefault();
                 bid.User = user;
             }
+
             return bids.OrderByDescending(b => b.Time).AsQueryable();
         }
     }

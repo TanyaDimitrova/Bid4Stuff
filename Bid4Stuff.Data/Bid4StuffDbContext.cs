@@ -1,16 +1,11 @@
-﻿using Bid4Stuff.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using Bid4Stuff.Data.Migrations;
-
-namespace Bid4Stuff.Data
+﻿namespace Bid4Stuff.Data
 {
+    using System.Data.Entity;
+
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    using Bid4Stuff.Data.Migrations;
+    using Bid4Stuff.Models;
 
     public class Bid4StuffDbContext : IdentityDbContext<ApplicationUser>
     {

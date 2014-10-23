@@ -6,7 +6,7 @@
     CodeBehind="Default.aspx.cs"
     Inherits="Bid4Stuff.App._Default" %>
 
-<%@ OutputCache CacheProfile="Bid4StuffCache"%>
+<%@ OutputCache CacheProfile="Bid4StuffCache" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Timer runat="server" ID="UpdateTimer" Interval="1000"

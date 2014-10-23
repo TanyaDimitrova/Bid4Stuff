@@ -4,7 +4,9 @@
     using System.IO;
     using System.Linq;
     using System.Web.UI.WebControls;
+
     using Error_Handler_Control;
+
     using Bid4Stuff.Data;
     using Bid4Stuff.Data.Contracts;
     using Bid4Stuff.Models;
@@ -102,6 +104,7 @@
                 this.ItemImageInput.SaveAs(Server.MapPath(string.Format("~/{2}/{0}/{1}", subPath, uniqueFileName, defaultPath)));
                 imagePath = string.Format("~/{2}/{0}/{1}", subPath, uniqueFileName, defaultPath);
             }
+
             return string.IsNullOrEmpty(imagePath) ? imagePath = "~/default_product.png" : imagePath;
         }
 

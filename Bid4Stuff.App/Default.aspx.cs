@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI;
-using Bid4Stuff.App.Models;
-using Bid4Stuff.Data;
-using System.Web.UI.WebControls;
-
-namespace Bid4Stuff.App
+﻿namespace Bid4Stuff.App
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+
+    using Bid4Stuff.App.Models;
+    using Bid4Stuff.Data;
+
     public partial class _Default : Page
     {
         private const int TopItemsCount = 5;

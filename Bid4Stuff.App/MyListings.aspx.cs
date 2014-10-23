@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Bid4Stuff.Data;
-using Bid4Stuff.Models;
-
-namespace Bid4Stuff.App
+﻿namespace Bid4Stuff.App
 {
+    using System;
+    using System.Linq;
+
+    using Bid4Stuff.Data;
+
     public partial class MyListings : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
