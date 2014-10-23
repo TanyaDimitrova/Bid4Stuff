@@ -25,13 +25,6 @@
             </div>
 
             <div class="form-group">
-                <asp:Label ID="ItemImage" runat="server" Text="Image" AssociatedControlID="ItemImageInput" class="col-lg-2 control-label" />
-                <div class="col-lg-10">
-                    <asp:FileUpload ID="ItemImageInput" runat="server" CssClass="form-control" />
-                </div>
-            </div>
-
-            <div class="form-group">
                 <asp:Label ID="ItemPrice" runat="server" Text="Price" AssociatedControlID="ItemPriceInput" class="col-lg-2 control-label" />
                 <div class="col-lg-10">
                     <asp:TextBox ID="ItemPriceInput" runat="server" CssClass="form-control" />
@@ -52,7 +45,7 @@
                 </div>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <asp:Label ID="lblCategory" runat="server" Text="Category" AssociatedControlID="DropDownListCategory" class="col-lg-2 control-label" />
                 <div class="col-lg-10">
                     <asp:DropDownList
@@ -61,6 +54,13 @@
                         DataTextField="Name"
                         runat="server"
                         CssClass="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <asp:Label ID="ItemImage" runat="server" Text="Image" AssociatedControlID="ItemImageInput" class="col-lg-2 control-label" />
+                <div class="col-lg-10">
+                    <asp:FileUpload ID="ItemImageInput" runat="server" CssClass="form-control" />
                 </div>
             </div>
 

@@ -49,24 +49,6 @@ namespace Bid4Stuff.App {
         protected global::System.Web.UI.WebControls.TextBox ItemDescriptionInput;
         
         /// <summary>
-        /// ItemImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ItemImage;
-        
-        /// <summary>
-        /// ItemImageInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ItemImageInput;
-        
-        /// <summary>
         /// ItemPrice control.
         /// </summary>
         /// <remarks>
@@ -137,6 +119,24 @@ namespace Bid4Stuff.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCategory;
+        
+        /// <summary>
+        /// ItemImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ItemImage;
+        
+        /// <summary>
+        /// ItemImageInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ItemImageInput;
         
         /// <summary>
         /// ButtonCancel control.

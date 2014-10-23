@@ -431,6 +431,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploaded_Files\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bid4Stuff.Data\Bid4Stuff.Data.csproj">

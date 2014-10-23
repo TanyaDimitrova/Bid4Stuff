@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Bid4Stuff.Data;
-using Bid4Stuff.Models;
-using Bid4Stuff.Data.Contracts;
-
-namespace Bid4Stuff.App
+﻿namespace Bid4Stuff.App
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+    using Bid4Stuff.Data;
+    using Bid4Stuff.Models;
+    using Bid4Stuff.Data.Contracts;
+    using System.IO;
+
     public partial class CreateItemListing : System.Web.UI.Page
     {
+        private const string DefaultFileUploadFolder = "Uploaded_Files";
         private IBid4StuffData data;
 
         protected void Page_Init(object sender, EventArgs e)
@@ -35,8 +37,31 @@ namespace Bid4Stuff.App
         {
             if (this.User != null && this.User.Identity.IsAuthenticated)
             {
-                //var test = (this.DropDownListCategory.SelectedValue);
+                string imagePath = string.Empty;
+
                 //TODO: add validations validations and fileupload
+                if (this.ItemImageInput.HasFile)
+                {
+                    string filename = Path.GetFileName(this.ItemImageInput.FileName);
+
+                    string defaultPath = DefaultFileUploadFolder;
+                    bool defaultPathExists = Directory.Exists(Server.MapPath(defaultPath));
+                    if (!defaultPathExists)
+                    {
+                        Directory.CreateDirectory(Server.MapPath(string.Format("~/{0}", defaultPath)));
+                    }
+
+                    string subPath = Context.User.Identity.Name;
+                    bool subPathExists = Directory.Exists(Server.MapPath(subPath));
+                    if (!subPathExists)
+                    {
+                        Directory.CreateDirectory(Server.MapPath(string.Format("~/{1}/{0}", subPath, defaultPath)));
+                    }
+
+                    this.ItemImageInput.SaveAs(Server.MapPath(string.Format("~/{2}/{0}/{1}", subPath, filename, defaultPath)));
+                    imagePath = string.Format("~/{2}/{0}/{1}", subPath, filename, defaultPath);
+                }
+
                 var user = this.data.Users.SearchFor(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
                 var item = new Item()
                 {
@@ -44,6 +69,7 @@ namespace Bid4Stuff.App
                     CategoryId = int.Parse(this.DropDownListCategory.SelectedValue),
                     Description = this.ItemDescriptionInput.Text,
                     Price = decimal.Parse(this.ItemPriceInput.Text),
+                    ImagePath = imagePath,
                     OwnerId = user.Id,
                     StartDate = this.StartDateInput.SelectedDate,
                     EndDate = this.EndDateInput.SelectedDate
