@@ -1,15 +1,13 @@
 ﻿namespace Bid4Stuff.App
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
-    using Bid4Stuff.Data;
-    using Bid4Stuff.Models;
-    using Bid4Stuff.Data.Contracts;
     using System.IO;
+    using System.Linq;
+    using System.Web.UI.WebControls;
+    
+    using Bid4Stuff.Data;
+    using Bid4Stuff.Data.Contracts;
+    using Bid4Stuff.Models;
 
     public partial class CreateItemListing : System.Web.UI.Page
     {
@@ -72,7 +70,8 @@
                     ImagePath = imagePath,
                     OwnerId = user.Id,
                     StartDate = DateTime.Now,
-                    EndDate = this.EndDateInput.SelectedDate
+                    EndDate = this.EndDateInput.SelectedDate,
+                    Active = true
                 };
 
                 data.Items.Add(item);

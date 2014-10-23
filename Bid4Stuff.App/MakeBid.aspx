@@ -45,7 +45,7 @@
     </div>
     <br />
     <div class="input-group">
-        <asp:Label ID="LabelBidPrice" runat="server" Text="Price" AssociatedControlID="InputBidPrice" class="input-group-addon"/>
+        <asp:Label ID="LabelBidPrice" runat="server" Text="Price" AssociatedControlID="InputBidPrice" CssClass="input-group-addon"/>
         <asp:TextBox ID="InputBidPrice" runat="server" CssClass="form-control"/>
         <asp:Button Text="Make Bid" ID="ButtonMakeBid" runat="server" OnClick="ButtonMakeBid_Click" CssClass="btn btn-info"/>
     </div>
