@@ -32,13 +32,6 @@
             </div>
 
             <div class="form-group">
-                <asp:Label ID="lblStartDate" runat="server" Text="Start Date" AssociatedControlID="StartDateInput" class="col-lg-2 control-label" />
-                <div class="col-lg-10">
-                    <asp:Calendar ID="StartDateInput" runat="server" EnableViewState="true" />
-                </div>
-            </div>
-
-            <div class="form-group">
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date" AssociatedControlID="EndDateInput" class="col-lg-2 control-label" />
                 <div class="col-lg-10">
                     <asp:Calendar ID="EndDateInput" runat="server" EnableViewState="true" />

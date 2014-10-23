@@ -71,7 +71,7 @@
                     Price = decimal.Parse(this.ItemPriceInput.Text),
                     ImagePath = imagePath,
                     OwnerId = user.Id,
-                    StartDate = this.StartDateInput.SelectedDate,
+                    StartDate = DateTime.Now,
                     EndDate = this.EndDateInput.SelectedDate
                 };
 
