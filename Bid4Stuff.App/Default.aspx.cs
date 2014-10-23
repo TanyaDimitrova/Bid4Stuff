@@ -15,11 +15,17 @@ namespace Bid4Stuff.App
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            var endedOffers = db.Items.SearchFor(i => i.EndDate < DateTime.Now);
+            foreach (var offer in endedOffers)
+            {
+                offer.Active = false;
+            }
         }
         
         public IEnumerable<OfferViewModel> ListViewLatestAddedOffers_GetData()
         {
             var latestAddedItems = this.db.Items.All()
+                                       .Where(i => i.Active)
                                        .OrderByDescending(i => i.StartDate)
                                        .Take(TopItemsCount)
                                        .ToList();
@@ -32,6 +38,7 @@ namespace Bid4Stuff.App
         public IEnumerable<OfferViewModel> ListViewOffersEndingSoon_GetData()
         {
             var latestAddedItems = this.db.Items.All()
+                                       .Where(i => i.Active)
                                        .OrderBy(i => i.EndDate)
                                        .Take(TopItemsCount)
                                        .ToList();

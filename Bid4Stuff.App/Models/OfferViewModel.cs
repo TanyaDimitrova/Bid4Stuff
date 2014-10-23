@@ -14,7 +14,7 @@ namespace Bid4Stuff.App.Models
             this.Name = item.Name;
             this.Price = item.Price;
             this.StartDate = item.StartDate.ToString("dd.MM.yyyy");
-            this.ImagePath = item.ImagePath == null ? DefaultImagePath : item.ImagePath;
+            this.ImagePath = item.ImagePath == String.Empty ? DefaultImagePath : item.ImagePath;
             
             var diff = item.EndDate - DateTime.Now;
             var withoutDays = string.Format("{0}h {1}m {2}s", diff.Hours, diff.Minutes, diff.Seconds);
