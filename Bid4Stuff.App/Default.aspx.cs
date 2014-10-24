@@ -21,6 +21,7 @@
             {
                 offer.Active = false;
             }
+            db.SaveChanges();
         }
         
         public IEnumerable<OfferViewModel> ListViewLatestAddedOffers_GetData()
